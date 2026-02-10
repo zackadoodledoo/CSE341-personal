@@ -77,3 +77,22 @@ DELETE https://cse341-instructor.herokuapp.com/contacts/6220e34083149913680f9a64
 ###
 GET https://cse341-test.onrender.com/contacts
 
+###
+GET http://localhost:3000/localhost:3000/contacts http/1.1
+
+###
+GET http://localhost:3000/contacts/698b76eca5601c752be8b190 http/1.1
+
+
+
+###
+GET http://localhost:3000/recipes-api http/1.1
+
+###
+GET http://localhost:3000/recipes/6220bcb39cd507e920c75a0b http/1.1
+
+###
+GET http://localhost:3000/recipes http/1.1
+
+###
+GET http://localhost:3000/recipes/6220bcb39cd507e920c75a0b http/1.1 
