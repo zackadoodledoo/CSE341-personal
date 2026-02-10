@@ -10,7 +10,7 @@ router.get('/:id', contactsController.getSingle);
 
 router.get('/', validation.saveContact, contactsController.createContact);
 
-router.get('/:id', validation.savedContact, contactsController.updateContact);
+router.get('/:id', validation.saveContact, contactsController.updateContact);
 
 router.delete('/:id', contactsController.deleteContact);
 
