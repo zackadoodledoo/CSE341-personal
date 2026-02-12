@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
@@ -26,11 +27,40 @@ mongodb.initDb((err) => {
   }
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.use(express.json());
+
+
+//GET Retrieve all recipes from MongoDB
+app.get('/recipes', async (req, res) => {
+  try {
+    const allRecipes = await Recipe.find();
+    res.json({ success: true, data: allRecipes });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
-app.get('/recipes-api', (req, res) => {
+
+//POST Add a new recipe to MongoDB
+app.post('/recipes', async (req, res) => {
+  try {
+    const newRecipe = new Recipe(req.body); //Creates new document from request body
+    const savedRecipe = await newRecipe.save(); //Saves document to MongoDB
+    res.status(201).json({ success: true, data: savedRecipe });
+  } catch (err) {
+  res.status(400).json({ error: err.message });
+  }
+});
+
+// Additional route to show db is actively connected and responding to requests
+app.get('/recipesDB', (req, res) => {
+  res.json({ message: "Success!" });
+});
+
+  
+
+
+app.get('/recipesDB', (req, res) => {
   res.json({ message: "Success!" });
 });
 

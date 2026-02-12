@@ -96,3 +96,10 @@ GET http://localhost:3000/recipes http/1.1
 
 ###
 GET http://localhost:3000/recipes/6220bcb39cd507e920c75a0b http/1.1 
+
+
+###
+GET http://localhost:3000/routes/recipes http/1.1
+
+###
+GET http://localhost:3000/recipes http/1.1
